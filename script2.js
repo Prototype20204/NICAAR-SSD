@@ -1,36 +1,40 @@
-var d = new Date();
-var n = d.toLocaleDateString();
-document.getElementById("date").innerHTML = n;
+const url =
+	'https://api.openweathermap.org/data/2.5/weather';
+const apiKey =
+	'f00c38e0279b7bc85480c3fe775d518c';
 
-function getWeather( cityID ) {
-  var key = '535f8a50b4bc24608c72fcde2aecb52b';
-  fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)  
-  .then(function(resp) { return resp.json() }) 
-  .then(function(data) {
-    drawWeather(data);
-  })
-  .catch(function() {
-    // catch any errors
-  });
+$(document).ready(function () {
+	weatherFn('Pune');
+});
+
+async function weatherFn(cName) {
+	const temp =
+		`${url}?q=${cName}&appid=${apiKey}&units=metric`;
+	try {
+		const res = await fetch(temp);
+		const data = await res.json();
+		if (res.ok) {
+			weatherShowFn(data);
+		} else {
+			alert('City not found. Please try again.');
+		}
+	} catch (error) {
+		console.error('Error fetching weather data:', error);
+	}
 }
 
-window.onload = function() {
-  getWeather( 6167865 );
+function weatherShowFn(data) {
+	$('#city-name').text(data.name);
+	$('#date').text(moment().
+		format('MMMM Do YYYY, h:mm:ss a'));
+	$('#temperature').
+		html(`${data.main.temp}°C`);
+	$('#description').
+		text(data.weather[0].description);
+	$('#wind-speed').
+		html(`Wind Speed: ${data.wind.speed} m/s`);
+	$('#weather-icon').
+		attr('src',
+			`...`);
+	$('#weather-info').fadeIn();
 }
-
-function drawWeather( d ) {
-  var celcius = Math.round(parseFloat(d.main.temp)-273.15);
-  var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
-
-  document.getElementById('cityName').innerHTML = d.name;
-  document.getElementById('description').innerHTML = d.weather[0].description;
-  document.getElementById('temp').innerHTML = fahrenheit + '&deg;';
-  document.getElementById('icon').src = `http://openweathermap.org/img/w/${d.weather[0].icon}.png`;
- }
-<div class="weather">
-  <div id="date"></div>
-  <div id="cityName"></div>
-  <img src="" id="icon">
-  <div id="temp"></div>
-  <div id="description"></div>
-</div>
