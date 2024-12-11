@@ -1,9 +1,9 @@
-import { useDebounce } from '@/utils/Debounce';
-import { WeatherDataContext } from '@/utils/WeatherDataReducer';
-import Image from 'next/image';
+import { useDebounce } from 'Debounce';
+import { WeatherDataContext } from 'WeatherDataReducer';
+import Image from 'image';
 import React, { useContext, useEffect, useState } from 'react';
-import SearchError from '../Error/SearchError';
-import { fetchWeatherData } from '@/utils/FetchWeatherData';
+import SearchError from 'SearchError';
+import { fetchWeatherData } from 'FetchWeatherData';
 
 const SearchBar = () => {
 	const [mount, setMount] = useState(false);
