@@ -1,5 +1,5 @@
-import '@/globals.css';
-import { WeatherDataProvider } from '@/WeatherDataReducer';
+import 'globals.css';
+import { WeatherDataProvider } from 'WeatherDataReducer';
 import { ThemeProvider } from 'next-themes';
 
 export default function App({ Component, pageProps }) {
