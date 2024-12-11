@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import fetchCurrentLocation from '@/GetLoc';
-import { WeatherDataContext } from '@/WeatherDataReducer';
-import { fetchWeatherData } from '@/FetchWeatherData';
+import fetchCurrentLocation from 'GetLoc';
+import { WeatherDataContext } from 'WeatherDataReducer';
+import { fetchWeatherData } from 'FetchWeatherData';
 
 const CurrentLocation = () => {
 	const [location, setLocation] = useState({ latitude: null, longitude: null });
