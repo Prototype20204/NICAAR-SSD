@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Poppins } from 'next/font/google';
-import Nav from '@/components/Nav/Nav';
-import WeatherBox from '@/components/WeatherComponents/WeatherBox';
-import { WeatherDataContext } from '@/utils/WeatherDataReducer';
+import Nav from '@/Nav';
+import WeatherBox from '@/WeatherBox';
+import { WeatherDataContext } from '@/WeatherDataReducer';
 import {
 	FiveDaysForecast,
 	ForecastWrapper,
 	HourlyForecast,
-} from '@/components/ForecastComponents';
+} from '@/ForecastComponents';
 
 const popi = Poppins({
 	weight: '600',
