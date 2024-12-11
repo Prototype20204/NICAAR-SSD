@@ -1,4 +1,4 @@
-import { WeatherDataContext } from '@/WeatherDataReducer';
+import { WeatherDataContext } from 'WeatherDataReducer';
 import React, { useState, useEffect, useContext } from 'react';
 
 // Function to format a timestamp with a specific timezone offset
