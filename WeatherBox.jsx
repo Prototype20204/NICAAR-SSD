@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Mochiy_Pop_One } from 'next/font/google';
-import Image from 'next/image';
-import humiditySvg from '../../../humidity.svg';
-import windspeedSvg from '../../../wind.svg';
-import pressureSvg from '../../../pressure.svg';
-import uvSvg from '../../../uv.svg';
-import bigSunSvg from '../../../BigSunPic.svg';
-import sunRise from '../../../sunrise.svg';
-import sunSet from '../../../sunset.svg';
+import { Mochiy_Pop_One } from 'google';
+import Image from 'image';
+import humiditySvg from 'humidity.svg';
+import windspeedSvg from 'wind.svg';
+import pressureSvg from 'pressure.svg';
+import uvSvg from 'uv.svg';
+import bigSunSvg from 'BigSunPic.svg';
+import sunRise from 'sunrise.svg';
+import sunSet from 'sunset.svg';
 import { useTheme } from 'next-themes';
-import { WeatherDataContext } from '@/WeatherDataReducer';
-import timeConverter from '@/GetTimeConversion';
+import { WeatherDataContext } from 'WeatherDataReducer';
+import timeConverter from 'GetTimeConversion';
 import Clock from './Cloack';
 
 const mpopi = Mochiy_Pop_One({
